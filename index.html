@@ -13,26 +13,35 @@
 <meta property="og:site_name" content="Nudge Education Online" />
 <meta property="og:locale" content="en_GB" />
 
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231A2E3B'/><path d='M18 44 V22 L46 44 V22' stroke='%232AB3A0' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,30..100,0..1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
 :root {
-  /* NEO brand palette */
+  /* NEO brand palette — aligned to nudgeeducation.online */
   --navy:        #1A2E3B;
   --navy-dk:     #0F1C24;
   --teal:        #2AB3A0;
   --teal-dk:     #1F8A7C;
-  --off-white:   #F7F7F5;
+  --teal-tint:   #E6F5F2;
+  --cream:       #F5F1E8;
+  --cream-light: #FAF7F0;
   --white:       #FFFFFF;
-  --charcoal:    #2D3436;
-  --grey-mid:    #6B7B8D;
-  --grey-light:  #E8ECEF;
+  --ink:         #1A2E3B;
+  --grey-mid:    #6B7280;
+  --grey-light:  #E2E8F0;
+  --line:        #E2E8F0;
 
-  /* Archetype colours — these are the six cube faces */
+  /* Legacy alias kept so previously-written rules still resolve. */
+  --off-white:   #FAF7F0;
+  --charcoal:    #1A2E3B;
+
+  /* Archetype colours — the six cube faces (quiz-specific, not part of the site palette) */
   --maker:        #B85042;
   --connector:    #4A6F5B;
   --investigator: #2E5C6E;
@@ -42,7 +51,7 @@
 
   --face-size: 220px;
   --display: "Fraunces", Georgia, "Times New Roman", serif;
-  --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -66,47 +75,74 @@ a {
 }
 a:hover { border-bottom-color: var(--teal-dk); }
 
-/* ============ Site nav ============ */
+/* ============ Site nav (aligned to nudgeeducation.online) ============ */
 
-.site-nav {
+header.site {
   background: var(--navy);
   color: var(--white);
-  padding: 14px 0;
+  border-bottom: 4px solid var(--teal);
 }
-.site-nav-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 24px;
+header.site .wrap {
+  width: min(1120px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+header.site .bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  padding: 1rem 0;
+  gap: 1rem;
   flex-wrap: wrap;
 }
-.site-nav .wordmark {
-  display: inline-flex;
-  align-items: center;
-  height: 42px;
-  border: 0;
-}
-.site-nav .wordmark svg {
-  height: 42px;
-  width: auto;
-  display: block;
-}
-.site-nav .links {
+.brand {
   display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
-}
-.site-nav .links a {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 14px;
+  align-items: baseline;
+  gap: .6rem;
+  color: var(--white);
+  text-decoration: none;
   border: 0;
-  font-weight: 500;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -.01em;
 }
-.site-nav .links a:hover { color: var(--white); }
-.site-nav .links a.active { color: var(--white); }
+.brand small {
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: .78rem;
+  color: var(--teal);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.brand .brand-mark { display: inline-flex; align-items: baseline; }
+.brand .dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--white);
+  margin-left: 3px;
+  border-radius: 1px;
+  align-self: baseline;
+  transform: translateY(-1px);
+}
+nav.primary { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+nav.primary a {
+  color: #cfe7e2;
+  text-decoration: none;
+  font-size: .94rem;
+  font-weight: 500;
+  border: 0;
+}
+nav.primary a:hover { color: var(--white); }
+nav.primary a.current {
+  color: var(--white);
+  border-bottom: 2px solid var(--teal);
+  padding-bottom: 2px;
+}
+@media (max-width: 760px) {
+  nav.primary { gap: .85rem; font-size: .88rem; width: 100%; justify-content: flex-start; }
+  header.site .bar { padding-bottom: .8rem; }
+}
 
 /* ============ Page ============ */
 
@@ -526,43 +562,18 @@ button[disabled] { opacity: 0.4; cursor: not-allowed; }
 
 <body>
 
-<!-- ============ SITE NAV ============ -->
-<header class="site-nav">
-  <div class="site-nav-inner">
-    <a href="https://nudgeeducation.online" class="wordmark" aria-label="NEO by Nudge Education">
-      <!-- White wordmark — inline so we don't need an external file -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416.33 120.00" aria-hidden="true">
-        <g transform="translate(20,98.24) scale(0.04,-0.04)" fill="#FFFFFF">
-          <path d="M541 46Q541 25 526.5 13.0Q512 1 480 0H148Q117 1 101.5 13.0Q86 25 86 46Q86 81 130 98L177 112Q223 129 240.0 150.0Q257 171 257 218V1088Q257 1120 249.0 1140.0Q241 1160 212 1195L128 1301Q112 1323 106.0 1335.0Q100 1347 100 1359Q100 1379 113.5 1389.5Q127 1400 150 1400H379Q409 1400 428.5 1389.5Q448 1379 469 1351L1246 320L1199 204V1182Q1199 1228 1183.5 1249.5Q1168 1271 1119 1288L1072 1302Q1028 1321 1028 1354Q1028 1376 1043.0 1388.0Q1058 1400 1089 1400H1421Q1453 1400 1468.0 1388.0Q1483 1376 1483 1354Q1483 1320 1439 1302L1392 1288Q1346 1272 1329.5 1251.0Q1313 1230 1313 1182V286Q1313 254 1318.5 231.0Q1324 208 1339 188L1401 107Q1419 82 1423.5 69.5Q1428 57 1428 44Q1428 24 1414.0 12.0Q1400 0 1375 0H1109Q1061 0 1061 38Q1061 54 1055.0 68.5Q1049 83 1020 122L276 1112L371 1178V218Q371 173 386.5 151.5Q402 130 450 112L497 98Q541 80 541 46Z" transform="translate(0,0)"/>
-          <path d="M447 753H764Q826 753 851.5 777.0Q877 801 890 871Q896 895 908.5 907.0Q921 919 940 920Q978 922 989 877L1066 580Q1072 554 1065.5 538.5Q1059 523 1038 516Q1018 510 1000.5 516.0Q983 522 971 541Q944 587 920.5 611.5Q897 636 868.0 645.0Q839 654 794 654H447ZM104 1354Q104 1376 119.0 1388.0Q134 1400 165 1400H925Q961 1400 984.5 1410.0Q1008 1420 1028.5 1430.0Q1049 1440 1076 1440Q1106 1440 1121.5 1423.0Q1137 1406 1149 1367L1229 1086Q1236 1061 1228.0 1044.0Q1220 1027 1198 1020Q1173 1012 1153.0 1021.0Q1133 1030 1120 1055Q1082 1133 1049.5 1181.5Q1017 1230 984.0 1255.5Q951 1281 912.5 1290.5Q874 1300 823 1300H563V199Q563 149 591.0 124.5Q619 100 676 100H852Q920 100 970.0 122.5Q1020 145 1065.5 208.5Q1111 272 1166 397Q1176 420 1193.0 428.0Q1210 436 1232 433Q1257 429 1267.5 411.0Q1278 393 1271 366L1185 37Q1175 -1 1158.0 -19.0Q1141 -37 1108 -37Q1085 -37 1064.5 -27.5Q1044 -18 1020.0 -9.0Q996 0 961 0H165Q134 0 119.0 12.5Q104 25 104 46Q104 84 146 97L203 110Q228 117 240.5 131.0Q253 145 253 167V1233Q253 1255 240.5 1269.0Q228 1283 203 1290L146 1303Q104 1316 104 1354Z" transform="translate(1549,0)"/>
-          <path d="M792 1435Q957 1435 1089.5 1381.0Q1222 1327 1317.0 1227.5Q1412 1128 1462.5 992.0Q1513 856 1513 691Q1513 534 1462.5 401.0Q1412 268 1318.0 170.0Q1224 72 1092.0 17.5Q960 -37 798 -37Q635 -37 503.0 17.0Q371 71 276.5 170.5Q182 270 131.0 406.5Q80 543 80 708Q80 864 130.5 997.0Q181 1130 275.0 1228.5Q369 1327 500.0 1381.0Q631 1435 792 1435ZM1195 513Q1195 646 1170.5 767.5Q1146 889 1102.0 991.5Q1058 1094 999.0 1170.0Q940 1246 870.5 1288.5Q801 1331 726 1331Q628 1331 554.5 1278.0Q481 1225 441.0 1125.5Q401 1026 401 886Q401 752 425.5 630.0Q450 508 494.0 405.5Q538 303 596.5 226.5Q655 150 724.5 108.0Q794 66 868 66Q968 66 1041.5 119.0Q1115 172 1155.0 271.5Q1195 371 1195 513Z" transform="translate(2870,0)"/>
-        </g>
-        <rect x="201.76" y="89.6" width="10.4" height="10.4" fill="#2AB3A0"/>
-        <g transform="translate(236.16,69.5625) scale(0.0068359375,-0.0068359375)" fill="#FFFFFF">
-          <path d="M150 0V1490H720Q881 1490 988.0 1439.0Q1095 1388 1148.0 1301.0Q1201 1214 1201 1103Q1201 1012 1166.0 947.5Q1131 883 1072.5 843.0Q1014 803 941 786V771Q1020 767 1093.0 723.0Q1166 679 1212.5 599.0Q1259 519 1259 406Q1259 290 1203.0 198.0Q1147 106 1034.5 53.0Q922 0 751 0ZM417 223H709Q857 223 922.5 280.0Q988 337 988 426Q988 493 955.0 546.5Q922 600 861.5 631.0Q801 662 718 662H417ZM417 855H686Q757 855 813.0 881.0Q869 907 901.5 955.0Q934 1003 934 1069Q934 1156 873.0 1212.0Q812 1268 692 1268H417Z" transform="translate(0,0)"/>
-          <path d="M600 0V577L50 1490H362L628 1020Q670 946 703.0 876.0Q736 806 771 705H701Q735 807 767.5 878.0Q800 949 840 1020L1101 1490H1411L867 577V0Z" transform="translate(1350,0)"/>
-          <path d="M150 0V1490H452L967 669Q999 618 1035.0 553.5Q1071 489 1110.0 409.5Q1149 330 1187 233H1157Q1150 317 1144.5 405.5Q1139 494 1136.5 573.5Q1134 653 1134 708V1490H1405V0H1102L637 739Q593 810 554.0 879.0Q515 948 470.0 1035.0Q425 1122 361 1245H399Q405 1136 410.0 1038.5Q415 941 418.5 864.0Q422 787 422 740V0Z" transform="translate(3327,0)"/>
-          <path d="M754 -22Q572 -22 436.0 46.5Q300 115 225.0 236.5Q150 358 150 517V1490H417V539Q417 446 458.5 373.0Q500 300 575.5 258.5Q651 217 754 217Q857 217 932.5 258.5Q1008 300 1049.5 373.0Q1091 446 1091 539V1490H1358V517Q1358 358 1282.5 236.5Q1207 115 1071.5 46.5Q936 -22 754 -22Z" transform="translate(4882,0)"/>
-          <path d="M654 0H277V231H641Q797 231 901.5 288.5Q1006 346 1059.0 460.5Q1112 575 1112 747Q1112 917 1059.0 1031.0Q1006 1145 903.5 1202.0Q801 1259 648 1259H269V1490H664Q886 1490 1045.0 1401.0Q1204 1312 1289.5 1145.0Q1375 978 1375 747Q1375 514 1289.5 346.5Q1204 179 1042.5 89.5Q881 0 654 0ZM417 1490V0H150V1490Z" transform="translate(6389,0)"/>
-          <path d="M793 -20Q587 -20 432.0 73.0Q277 166 190.0 337.0Q103 508 103 743Q103 984 192.5 1155.5Q282 1327 436.0 1418.5Q590 1510 785 1510Q908 1510 1014.5 1474.0Q1121 1438 1204.5 1371.5Q1288 1305 1341.5 1214.0Q1395 1123 1412 1014H1139Q1121 1074 1089.5 1121.0Q1058 1168 1013.5 1202.0Q969 1236 912.5 1253.5Q856 1271 788 1271Q668 1271 573.5 1210.0Q479 1149 425.0 1032.0Q371 915 371 745Q371 577 425.0 459.5Q479 342 574.0 280.5Q669 219 794 219Q908 219 991.5 263.0Q1075 307 1120.5 388.0Q1166 469 1166 579L1227 569H822V779H1425V600Q1425 409 1343.5 269.5Q1262 130 1119.5 55.0Q977 -20 793 -20Z" transform="translate(7868,0)"/>
-          <path d="M150 0V1490H1118V1265H417V863H1066V641H417V225H1122V0Z" transform="translate(9402,0)"/>
-          <path d="M150 0V1490H1118V1265H417V863H1066V641H417V225H1122V0Z" transform="translate(11158,0)"/>
-          <path d="M654 0H277V231H641Q797 231 901.5 288.5Q1006 346 1059.0 460.5Q1112 575 1112 747Q1112 917 1059.0 1031.0Q1006 1145 903.5 1202.0Q801 1259 648 1259H269V1490H664Q886 1490 1045.0 1401.0Q1204 1312 1289.5 1145.0Q1375 978 1375 747Q1375 514 1289.5 346.5Q1204 179 1042.5 89.5Q881 0 654 0ZM417 1490V0H150V1490Z" transform="translate(12398,0)"/>
-          <path d="M754 -22Q572 -22 436.0 46.5Q300 115 225.0 236.5Q150 358 150 517V1490H417V539Q417 446 458.5 373.0Q500 300 575.5 258.5Q651 217 754 217Q857 217 932.5 258.5Q1008 300 1049.5 373.0Q1091 446 1091 539V1490H1358V517Q1358 358 1282.5 236.5Q1207 115 1071.5 46.5Q936 -22 754 -22Z" transform="translate(13877,0)"/>
-          <path d="M785 -20Q589 -20 435.0 71.0Q281 162 192.0 333.0Q103 504 103 744Q103 985 192.5 1156.5Q282 1328 436.5 1419.0Q591 1510 785 1510Q907 1510 1013.5 1475.5Q1120 1441 1203.5 1374.5Q1287 1308 1341.0 1212.0Q1395 1116 1413 994H1144Q1131 1061 1099.5 1112.0Q1068 1163 1021.0 1198.5Q974 1234 915.0 1252.5Q856 1271 789 1271Q667 1271 572.5 1209.5Q478 1148 424.5 1030.5Q371 913 371 744Q371 573 425.0 456.0Q479 339 573.5 279.0Q668 219 788 219Q855 219 914.0 237.5Q973 256 1020.5 291.5Q1068 327 1100.0 378.5Q1132 430 1144 496H1414Q1399 389 1348.5 295.5Q1298 202 1216.0 131.0Q1134 60 1025.5 20.0Q917 -20 785 -20Z" transform="translate(15384,0)"/>
-          <path d="M50 0 570 1490H909L1441 0H1148L883 774Q844 894 802.0 1045.5Q760 1197 709 1390H765Q715 1195 674.5 1042.5Q634 890 598 774L342 0ZM353 369V584H1138V369Z" transform="translate(16893,0)"/>
-          <path d="M83 1265V1490H1269V1265H810V0H543V1265Z" transform="translate(18383,0)"/>
-          <path d="M417 1490V0H150V1490Z" transform="translate(19735,0)"/>
-          <path d="M788 -20Q592 -20 437.0 71.0Q282 162 192.5 333.0Q103 504 103 744Q103 985 192.5 1156.5Q282 1328 437.0 1419.0Q592 1510 788 1510Q983 1510 1137.5 1419.0Q1292 1328 1381.5 1156.5Q1471 985 1471 744Q1471 504 1381.5 332.5Q1292 161 1137.5 70.5Q983 -20 788 -20ZM788 219Q909 219 1002.5 279.5Q1096 340 1149.0 457.5Q1202 575 1202 744Q1202 915 1149.0 1032.5Q1096 1150 1002.5 1210.5Q909 1271 788 1271Q666 1271 572.0 1210.0Q478 1149 424.5 1031.5Q371 914 371 744Q371 575 424.5 458.0Q478 341 572.0 280.0Q666 219 788 219Z" transform="translate(20302,0)"/>
-          <path d="M150 0V1490H452L967 669Q999 618 1035.0 553.5Q1071 489 1110.0 409.5Q1149 330 1187 233H1157Q1150 317 1144.5 405.5Q1139 494 1136.5 573.5Q1134 653 1134 708V1490H1405V0H1102L637 739Q593 810 554.0 879.0Q515 948 470.0 1035.0Q425 1122 361 1245H399Q405 1136 410.0 1038.5Q415 941 418.5 864.0Q422 787 422 740V0Z" transform="translate(21876,0)"/>
-        </g>
-      </svg>
+<!-- ============ SITE NAV (matches nudgeeducation.online) ============ -->
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nudgeeducation.online" aria-label="NEO by Nudge Education">
+      <span class="brand-mark">NEO<span class="dot" aria-hidden="true"></span></span>
+      <small>by Nudge Education</small>
     </a>
-    <nav class="links">
+    <nav class="primary" aria-label="Primary">
       <a href="https://nudgeeducation.online">Home</a>
       <a href="https://curriculum.nudgeeducation.online/">Curriculum</a>
       <a href="https://nudgeeducation.online/post-16.html">Post-16</a>
-      <a href="" class="active">NEO Next</a>
+      <a href="" class="current">NEO Next</a>
       <a href="https://policies.nudgeeducation.online/">Policies</a>
       <a href="https://nudgeeducation.online/faq.html">FAQ</a>
     </nav>
