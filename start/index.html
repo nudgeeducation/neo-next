@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Getting started with NEO</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#1A2E3B" />
+<!--
+  NEO Initial Assessment: learner page ("Getting started").
+  Unlisted and not indexed. Opened from a link the assessment lead puts in the Google Meet chat.
+
+  PRIVACY MODEL (must stay true after any edit):
+  - Nothing is sent, saved or tracked. No forms, no fetch, no cookies, no localStorage, no analytics, no consent.js.
+  - Answers live only in this browser tab. Closing the tab, or "Clear everything", removes them.
+  - The learner decides, section by section, what to show NEO. The lead copies only what is shown into the
+    learner's restricted Initial Assessment record.
+  - The only external requests are the Google Fonts stylesheet (typography); no answer data is ever sent with it.
+
+  WHO-5: wording is the WHO's own and must not be changed.
+  © World Health Organization, 2024. Licence: CC BY-NC-SA 3.0 IGO.
+
+  NEO Next questions and archetypes are copied from ../index.html. Keep them in sync.
+-->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231A2E3B'/><path d='M18 44 V22 L46 44 V22' stroke='%232AB3A0' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#1A2E3B;--navy-dk:#0F1C24;--teal:#2AB3A0;--teal-dk:#1F8A7C;--teal-tint:#E6F5F2;
+  --cream:#F5F1E8;--cream-light:#FAF7F0;--white:#FFFFFF;--ink:#2D3436;--grey:#5E6B73;--line:#E2E8F0;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--cream-light);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--teal)}
+header.top .wrap{max-width:760px;margin:0 auto;padding:14px 20px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:600;font-size:1.45rem;display:inline-flex;align-items:baseline;gap:.5rem}
+.brand i{display:inline-block;width:.42em;height:.42em;background:var(--teal);margin-left:.1em}
+.brand small{font-family:var(--body);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#c9d2da;font-weight:500}
+.private{font-size:.8rem;color:#cfe7e2}
+main{max-width:760px;margin:0 auto;padding:34px 20px 60px}
+h1,h2,h3{font-family:var(--display);color:var(--navy);font-weight:600;line-height:1.2}
+h1{font-size:clamp(30px,5vw,40px);margin:.2em 0 .4em}
+h2{font-size:clamp(24px,4vw,30px);margin:0 0 .4em}
+h3{font-size:20px;margin:0 0 .4em}
+.eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--teal-dk);font-weight:600}
+.lede{font-size:19px;color:var(--navy)}
+.muted{color:var(--grey)}
+.tiny{font-size:13px;color:var(--grey)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:18px 0}
+.card.tint{background:var(--teal-tint);border-color:transparent}
+ul.promise{margin:.4em 0 0;padding-left:1.2em}
+ul.promise li{margin-bottom:.35em}
+button{font-family:var(--body);font-size:16px;font-weight:600;border:0;border-radius:999px;padding:13px 24px;cursor:pointer;background:var(--teal);color:var(--navy);min-height:48px}
+button:hover{background:#46c4b2}
+button.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+button.ghost:hover{background:var(--white)}
+button.dark{background:var(--navy);color:#fff}
+button.dark:hover{background:var(--navy-dk)}
+button.link{background:none;border:0;color:var(--teal-dk);padding:8px 4px;min-height:0;font-weight:500;text-decoration:underline}
+button[disabled]{opacity:.4;cursor:not-allowed}
+button:focus-visible,.opt:focus-visible,.scale button:focus-visible,textarea:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:26px;flex-wrap:wrap}
+.progress{height:4px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:22px}
+.progress div{height:100%;background:var(--teal);width:0;transition:width .3s ease}
+.step{display:none;animation:fade .25s ease}
+.step.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.q{font-family:var(--display);font-size:clamp(21px,3.4vw,26px);color:var(--navy);line-height:1.25;margin:0 0 18px;font-weight:500}
+.count{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--teal-dk);font-weight:600;margin-bottom:10px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:block;width:100%;text-align:left;padding:15px 18px;background:var(--white);border:1px solid var(--line);border-radius:8px;color:var(--ink);font-size:16px;font-weight:400;border-radius:8px;min-height:0}
+.opt:hover{border-color:var(--navy);background:var(--white)}
+.opt.sel{background:var(--navy);border-color:var(--navy);color:#fff}
+.corner{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.corner h3{margin:0 0 2px;font-size:19px}
+.corner p{margin:0 0 10px;color:var(--grey);font-size:15px}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale button{border-radius:8px;background:var(--cream-light);color:var(--navy);border:1px solid var(--line);padding:10px 0;font-size:17px;min-height:46px}
+.scale button.sel{background:var(--navy);color:#fff;border-color:var(--navy)}
+.scale-ends{display:flex;justify-content:space-between;font-size:12.5px;color:var(--grey);margin-top:4px}
+textarea{width:100%;font:16px/1.5 var(--body);padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--cream-light);color:var(--ink);resize:vertical;min-height:70px}
+.corner textarea{min-height:52px;margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500;color:var(--navy);min-height:0}
+.chip:hover{border-color:var(--navy);background:var(--white)}
+.goal{margin-bottom:14px}
+.goal label{font-weight:600;color:var(--navy);display:block;margin-bottom:6px}
+.who{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px}
+.who p.stmt{font-family:var(--display);font-size:19px;color:var(--navy);margin:0 0 10px}
+.who .opts{gap:6px}
+.who .opt{padding:10px 14px;font-size:15px}
+.help{background:var(--navy);color:#e8ecef;border-radius:10px;padding:16px 20px;margin-top:20px;font-size:15px}
+.help b{color:#fff}
+/* results */
+.res{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:14px 0;position:relative}
+.res h3{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.share{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:15px;font-weight:500;color:var(--navy);cursor:pointer}
+.share input{width:22px;height:22px;accent-color:var(--teal-dk);flex:none}
+.res.shared{border-color:var(--teal-dk);box-shadow:0 0 0 2px var(--teal-tint)}
+table.cs{width:100%;border-collapse:collapse;font-size:15px}
+table.cs td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top}
+table.cs td.n{width:70px;font-weight:600;color:var(--navy);white-space:nowrap}
+.dots{letter-spacing:2px;color:var(--teal-dk)}
+.arche{border-radius:10px;padding:18px 20px;color:#fff;margin-bottom:10px}
+.arche .pre{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;font-weight:600}
+.arche h4{font-family:var(--display);font-size:28px;margin:4px 0 2px;color:#fff}
+.arche .tag{font-family:var(--display);font-style:italic;font-size:17px;opacity:.95}
+.score{font-family:var(--display);font-size:34px;color:var(--navy)}
+.showview .res:not(.shared){display:none}
+.showview .share,.showview .hide-in-show{display:none}
+.showbar{display:none;background:var(--teal-tint);border-radius:10px;padding:14px 18px;margin-bottom:10px;font-weight:500;color:var(--navy)}
+.showview .showbar{display:block}
+.none{display:none;text-align:center;padding:30px;color:var(--grey)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+footer.small{max-width:760px;margin:0 auto;padding:0 20px 40px;font-size:12.5px;color:var(--grey)}
+@media (max-width:560px){table.cs.w5 tr{display:block;padding:6px 0;border-bottom:1px solid var(--line)}table.cs.w5 td{display:block;border:0;padding:1px 4px}table.cs.w5 td+td{color:var(--teal-dk);font-weight:500}}
+@media (prefers-reduced-motion:reduce){.step{animation:none}.progress div{transition:none}}
+@media print{
+  header.top .private,.actions,.share,.showbar,.hide-in-show,.nav,.help{display:none!important}
+  body{background:#fff;font-size:12pt}
+  .res{break-inside:avoid;border-color:#ccc}
+  .res:not(.print){display:none}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand">NEO<i></i><small>by Nudge Education</small></div>
+  <div class="private">Private to you · nothing is saved</div>
+</div></header>
+
+<main>
+<div class="progress" id="progress" aria-hidden="true"><div id="bar"></div></div>
+
+<!-- 0 · WELCOME -->
+<section class="step on" id="s-welcome" aria-labelledby="h-welcome">
+  <span class="eyebrow">Getting started with NEO</span>
+  <h1 id="h-welcome">This is yours.</h1>
+  <p class="lede">A few short parts to help us understand how things are for you, what you enjoy and what you'd like to work on. It takes about ten minutes.</p>
+  <div class="card tint">
+    <h3>How it works</h3>
+    <ul class="promise">
+      <li><b>Nothing you put in here is saved or sent anywhere.</b> It stays on this screen, and it's gone when you close this page.</li>
+      <li>You can skip anything, go back, or stop.</li>
+      <li>At the end you'll see your answers together. <b>You choose which parts to show us</b>, and you can keep a copy for yourself.</li>
+      <li>We ask so we can look after you properly and plan lessons that suit you. If something you show us makes us worried about your safety, we'd need to talk to someone who can help. We would always tell you first.</li>
+    </ul>
+  </div>
+  <p class="muted">The person you're talking to can't see this screen unless you share it.</p>
+  <div class="nav"><span></span><button onclick="go(1)">Let's start →</button></div>
+</section>
+
+<!-- 1 · CORNERSTONES -->
+<section class="step" id="s-corner" aria-labelledby="h-corner">
+  <span class="eyebrow">Part 1 of 4 · The Cornerstones</span>
+  <h2 id="h-corner">Where am I now?</h2>
+  <p class="muted">The six Cornerstones are the things everyone needs to feel OK and ready to learn. Give each one a number: 1 means not great at the moment, 5 means going really well. There are no right answers.</p>
+  <div id="corners"></div>
+  <div class="nav"><button class="ghost" onclick="go(0)">← Back</button><button onclick="go(2)">Next →</button></div>
+</section>
+
+<!-- 2 · WHO-5 -->
+<section class="step" id="s-who" aria-labelledby="h-who">
+  <span class="eyebrow">Part 2 of 4 · The last two weeks</span>
+  <h2 id="h-who">How have you been feeling?</h2>
+  <p class="muted">These five come from the World Health Organization, so the words are exactly theirs. Please choose the answer closest to how you have been feeling over the last two weeks.</p>
+  <div id="who"></div>
+  <div class="help">If any of this feels hard right now, you can tell the person you're talking to, or someone at home. You can also talk to <b>Childline</b> any time for free on <b>0800 1111</b>, or text <b>SHOUT</b> to <b>85258</b>.</div>
+  <p class="tiny" style="margin-top:14px">WHO-5 Well-Being Index © World Health Organization, 2024. Licence CC BY-NC-SA 3.0 IGO.</p>
+  <div class="nav"><button class="ghost" onclick="go(1)">← Back</button><button onclick="go(3)">Next →</button></div>
+</section>
+
+<!-- 3 · NEO NEXT -->
+<section class="step" id="s-next" aria-labelledby="h-next">
+  <span class="eyebrow">Part 3 of 4 · NEO Next</span>
+  <h2 id="h-next" class="sr">What could come next?</h2>
+  <div id="nextq"></div>
+</section>
+
+<!-- 4 · GOALS -->
+<section class="step" id="s-goals" aria-labelledby="h-goals">
+  <span class="eyebrow">Part 4 of 4 · Small steps</span>
+  <h2 id="h-goals">What would you like to be able to do?</h2>
+  <p class="muted">Think small and soon, something you could do by half-term. We'll turn these into your first goals together. One is plenty, three at most. Tap an idea to borrow it, then change the words so it sounds like you.</p>
+  <div class="chips" id="ideas"></div>
+  <div class="goal"><label for="g1">Small step 1</label><textarea id="g1" rows="2" placeholder="I'd like to…"></textarea></div>
+  <div class="goal"><label for="g2">Small step 2 <span class="tiny">(optional)</span></label><textarea id="g2" rows="2" placeholder="I'd like to…"></textarea></div>
+  <div class="goal"><label for="g3">Small step 3 <span class="tiny">(optional)</span></label><textarea id="g3" rows="2" placeholder="I'd like to…"></textarea></div>
+  <div class="goal"><label for="gbig">And one day, I'd like to… <span class="tiny">(optional, as big as you like)</span></label><textarea id="gbig" rows="2"></textarea></div>
+  <div class="nav"><button class="ghost" onclick="go(3,true)">← Back</button><button onclick="showResults()">See it all together →</button></div>
+</section>
+
+<!-- 5 · RESULTS -->
+<section class="step" id="s-res" aria-labelledby="h-res">
+  <div class="showbar" id="showbar">This is what you've chosen to show NEO. <button class="link" onclick="toggleShow(false)">Go back to choosing</button></div>
+  <div class="hide-in-show">
+    <span class="eyebrow">Your starting point</span>
+    <h2 id="h-res">Here it is, all together.</h2>
+    <p class="muted">This belongs to you. Tick the parts you're happy to show NEO, then press <b>Show NEO my choices</b> and share your screen, or read them out if you prefer. Anything you don't tick stays with you.</p>
+  </div>
+  <div id="results"></div>
+  <div class="none" id="none">You haven't ticked anything to show yet. That's OK. <button class="link" onclick="toggleShow(false)">Go back</button></div>
+  <div class="actions hide-in-show">
+    <button onclick="toggleShow(true)">Show NEO my choices</button>
+    <button class="ghost" onclick="keepCopy()">Keep a copy for me</button>
+    <button class="ghost" onclick="go(4)">← Change something</button>
+    <button class="link" onclick="clearAll()">Clear everything</button>
+  </div>
+  <p class="tiny hide-in-show">"Keep a copy" opens your device's print window; choose "Save as PDF" to keep it. Nothing is sent to NEO.</p>
+</section>
+</main>
+
+<footer class="small">Nudge Education Online · part of your NEO Initial Assessment · Your answers are not saved or sent by this page.</footer>
+
+<script>
+'use strict';
+/* No storage, no network: all state lives in these variables and disappears with the tab. */
+
+const CORNERSTONES = [
+  {k:'Connection', p:'Who do you feel connected to? How easy is it to be with people at the moment?'},
+  {k:'Movement',   p:'How much do you move in a day? What kind of movement do you enjoy?'},
+  {k:'Creativity', p:'When do you get to make, invent or imagine things?'},
+  {k:'Reflection', p:'When do you get time to think about how things are going?'},
+  {k:'Rest',       p:'How are you sleeping? Do you get time to properly switch off?'},
+  {k:'Nutrition',  p:'Do you usually get to eat and drink regularly during the day?'}
+];
+
+/* WHO-5, exact WHO wording and scoring (0–5 per item, raw 0–25, x4 = 0–100). Do not edit. */
+const WHO5 = [
+  'I have felt cheerful and in good spirits',
+  'I have felt calm and relaxed',
+  'I have felt active and vigorous',
+  'I woke up feeling fresh and rested',
+  'My daily life has been filled with things that interest me'
+];
+const WHO5_OPTS = [
+  ['All of the time',5],['Most of the time',4],['More than half of the time',3],
+  ['Less than half of the time',2],['Some of the time',1],['At no time',0]
+];
+
+/* Copied from ../index.html (NEO Next). Keep in sync. */
+const ARCHETYPES = {
+  maker:{name:'Maker',color:'#B85042',tagline:"You'd rather build it than write about it."},
+  connector:{name:'Connector',color:'#4A6F5B',tagline:'You notice how other people are feeling before they say anything.'},
+  investigator:{name:'Investigator',color:'#2E5C6E',tagline:"You'd open it up to see how it works."},
+  storyteller:{name:'Storyteller',color:'#B97A2F',tagline:'You turn what you see into something other people can feel.'},
+  organiser:{name:'Organiser',color:'#5F5B8A',tagline:"You'd rather have it sorted than have it perfect."},
+  pattern:{name:'Pattern-spotter',color:'#4A4F7A',tagline:'You see the system underneath things.'}
+};
+const QUESTIONS = [
+  {prompt:'When you finish something, what makes you most proud?',options:[
+    ['That it works the way it should.','investigator'],['That someone you care about felt good about it.','connector'],
+    ['That it looks or sounds the way you wanted it to.','storyteller'],["That it's solid, and people can actually use it.",'maker'],
+    ['That you got it done in time.','organiser'],["That it's different from how everyone else would do it.",'pattern']]},
+  {prompt:'Pick the one that annoys you most.',options:[
+    ["When something's badly made and falls apart.",'maker'],['When someone gets cut out of the conversation.','connector'],
+    ["When something's badly explained and nobody asks why.",'investigator'],["When something's said in a flat, lifeless way.",'storyteller'],
+    ["When something's chaotic and could be sorted in five minutes.",'organiser'],["When nobody questions why it's set up this way at all.",'pattern']]},
+  {prompt:"You've got a free afternoon. You'd rather…",options:[
+    ['Build, fix, cook, or make something.','maker'],['Talk properly with one person you like.','connector'],
+    ['Go down a rabbit-hole on something nobody else cares about.','investigator'],['Write, draw, record, or design something.','storyteller'],
+    ["Sort out something that's been bothering you.",'organiser'],['Imagine how something could work differently.','pattern']]},
+  {prompt:"If a friend's stuck on a hard problem, you're most likely to…",options:[
+    ['Take it apart with them, piece by piece.','investigator'],["Sit with them until it doesn't feel as heavy.",'connector'],
+    ['Show them how — by doing some of it yourself.','maker'],['Reframe it so it sounds different.','storyteller'],
+    ['Help them make a plan so it stops being scary.','organiser'],["Ask whether it's even the right problem to be solving.",'pattern']]},
+  {prompt:'Pick the description that fits you better.',options:[["I notice what's missing.",'pattern'],["I notice what's broken.",'investigator']]},
+  {prompt:"When you're really focused, you usually look like you're…",options:[
+    ['Doing something with your hands.','maker'],['Listening hard.','connector'],['Reading or thinking.','investigator'],
+    ['Drawing, writing, or talking out loud.','storyteller'],['Sorting through stuff, or making lists.','organiser'],['Staring into the middle distance.','pattern']]},
+  {prompt:'Pick the work environment that sounds most like you.',options:[
+    ['A workshop, kitchen, or stage — somewhere physical.','maker'],['A small team where everyone knows each other.','connector'],
+    ['A quiet desk with the right books and tools.','investigator'],['A studio, with stuff on the walls and music playing.','storyteller'],
+    ["An office where everything's in its place.",'organiser'],["Anywhere — as long as you're working on the right question.",'pattern']]}
+];
+
+/* Generic ideas only; they are prompts, not anyone's real goals. */
+const IDEAS = [
+  'Join a lesson with my camera off and use the chat',
+  'Log in on my own three times a week',
+  'Finish one piece of work and show someone',
+  'Get up and dressed before my first lesson',
+  'Go outside for a walk before lunch',
+  'Try one new subject taster',
+  'Say one thing out loud in a group lesson',
+  'Eat something before my first lesson'
+];
+
+let state;
+function fresh(){
+  state = {step:0, corner:CORNERSTONES.map(()=>({r:null,w:''})), who:WHO5.map(()=>null),
+           nq:0, nsel:new Array(QUESTIONS.length).fill(null), share:{}};
+}
+fresh();
+
+const STEPS = ['s-welcome','s-corner','s-who','s-next','s-goals','s-res'];
+function go(i, backIntoNext){
+  state.step=i;
+  if(i===3){ if(backIntoNext){state.nq=QUESTIONS.length-1;} renderNext(); }
+  STEPS.forEach((id,n)=>document.getElementById(id).classList.toggle('on', n===i));
+  document.getElementById('bar').style.width = (i/5*100)+'%';
+  document.getElementById('progress').style.display = i===0 ? 'none' : 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+  const h = document.querySelector('#'+STEPS[i]+' h1, #'+STEPS[i]+' h2, #'+STEPS[i]+' .q');
+  if(h){h.setAttribute('tabindex','-1'); h.focus({preventScroll:true});}
+}
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+/* Cornerstones */
+function renderCorners(){
+  document.getElementById('corners').innerHTML = CORNERSTONES.map((c,i)=>`
+    <div class="corner">
+      <h3>${c.k}</h3><p>${c.p}</p>
+      <div class="scale" role="radiogroup" aria-label="${c.k}, 1 to 5">
+        ${[1,2,3,4,5].map(n=>`<button role="radio" aria-checked="${state.corner[i].r===n}" class="${state.corner[i].r===n?'sel':''}" onclick="setCorner(${i},${n})">${n}</button>`).join('')}
+      </div>
+      <div class="scale-ends"><span>not great at the moment</span><span>going really well</span></div>
+      <textarea aria-label="${c.k}, in my words (optional)" placeholder="In my words (optional)" oninput="state.corner[${i}].w=this.value">${esc(state.corner[i].w)}</textarea>
+    </div>`).join('');
+}
+function setCorner(i,n){ state.corner[i].r = state.corner[i].r===n ? null : n; renderCorners(); }
+
+/* WHO-5 */
+function renderWho(){
+  document.getElementById('who').innerHTML = WHO5.map((s,i)=>`
+    <div class="who"><p class="stmt">${i+1}. ${s}</p>
+      <div class="opts" role="radiogroup" aria-label="${s}">
+        ${WHO5_OPTS.map(([t,v])=>`<button role="radio" aria-checked="${state.who[i]===v}" class="opt ${state.who[i]===v?'sel':''}" onclick="setWho(${i},${v})">${t}</button>`).join('')}
+      </div></div>`).join('');
+}
+function setWho(i,v){ state.who[i] = state.who[i]===v ? null : v; renderWho(); }
+
+/* NEO Next */
+function renderNext(){
+  const q = QUESTIONS[state.nq], last = state.nq===QUESTIONS.length-1, sel = state.nsel[state.nq];
+  document.getElementById('nextq').innerHTML = `
+    ${state.nq===0?'<p class="muted">Seven quick questions from NEO Next, about how you like to work. Pick the one that fits best.</p>':''}
+    <div class="count">Question ${state.nq+1} of ${QUESTIONS.length}</div>
+    <p class="q">${q.prompt}</p>
+    <div class="opts" role="radiogroup" aria-label="${esc(q.prompt)}">
+      ${q.options.map(([t],i)=>`<button role="radio" aria-checked="${sel===i}" class="opt ${sel===i?'sel':''}" onclick="pickNext(${i})">${t}</button>`).join('')}
+    </div>
+    <div class="nav">
+      <button class="ghost" onclick="${state.nq===0?'go(2)':'state.nq--;renderNext()'}">← Back</button>
+      <span><button class="link" onclick="${last?'go(4)':'state.nq++;renderNext()'}">Skip</button>
+      <button onclick="${last?'go(4)':'state.nq++;renderNext()'}" ${sel===null?'disabled':''}>Next →</button></span>
+    </div>`;
+}
+function pickNext(i){ state.nsel[state.nq]=i; renderNext(); }
+function archetype(){
+  const sc={}; let answered=0;
+  state.nsel.forEach((s,q)=>{ if(s===null) return; answered++; const k=QUESTIONS[q].options[s][1]; sc[k]=(sc[k]||0)+1; });
+  if(answered<4) return null;
+  const sorted=Object.entries(sc).sort((a,b)=>b[1]-a[1]);
+  return {primary:sorted[0][0], streak: sorted[1] ? sorted[1][0] : null};
+}
+
+/* Goals */
+function renderIdeas(){
+  document.getElementById('ideas').innerHTML = IDEAS.map((t,i)=>`<button class="chip" onclick="borrow(${i})">${t}</button>`).join('');
+}
+function borrow(i){
+  for(const id of ['g1','g2','g3']){ const el=document.getElementById(id); if(!el.value.trim()){ el.value='I\'d like to '+IDEAS[i].charAt(0).toLowerCase()+IDEAS[i].slice(1)+'.'; el.focus(); return; } }
+}
+
+/* Results */
+function showResults(){
+  const r=[], a=archetype();
+  const cs = state.corner.map((c,i)=>({k:CORNERSTONES[i].k,...c})).filter(c=>c.r!==null||c.w.trim());
+  if(cs.length) r.push(['corner','The Cornerstones: where I am now',
+    `<table class="cs">${cs.map(c=>`<tr><td class="n">${c.k}</td><td>${c.r!==null?`<span class="dots">${'■'.repeat(c.r)}${'□'.repeat(5-c.r)}</span> ${c.r} out of 5`:'<span class="muted">no number</span>'}${c.w.trim()?`<br>${esc(c.w.trim())}`:''}</td></tr>`).join('')}</table>`]);
+  const wAns = state.who.filter(v=>v!==null).length;
+  if(wAns){
+    const raw = state.who.reduce((s,v)=>s+(v||0),0);
+    const rows = WHO5.map((s,i)=>`<tr><td>${s}</td><td style="white-space:nowrap">${state.who[i]===null?'<span class="muted">skipped</span>':WHO5_OPTS.find(o=>o[1]===state.who[i])[0]}</td></tr>`).join('');
+    const scoreLine = wAns===5 ? `<p><span class="score">${raw}</span> <span class="muted">out of 25</span></p>` : `<p class="muted">Not all five answered, so there's no total. That's fine.</p>`;
+    r.push(['who','The last two weeks (WHO-5)', scoreLine+`<table class="cs w5">${rows}</table>`]);
+  }
+  if(a){
+    const p=ARCHETYPES[a.primary], s=a.streak?ARCHETYPES[a.streak]:null;
+    r.push(['next','NEO Next: how I like to work',
+      `<div class="arche" style="background:${p.color}"><div class="pre">I'm a</div><h4>${p.name}</h4>${s?`<div>… with a ${s.name} streak</div>`:''}<div class="tag">“${esc(p.tagline)}”</div></div>
+       <p class="tiny">Want the full result, with ideas for what could come next? Take NEO Next any time at next.nudgeeducation.online.</p>`]);
+  }
+  const goals=['g1','g2','g3'].map(id=>document.getElementById(id).value.trim()).filter(Boolean);
+  const big=document.getElementById('gbig').value.trim();
+  if(goals.length||big) r.push(['goals','My small steps',
+    (goals.length?`<ol>${goals.map(g=>`<li>${esc(g)}</li>`).join('')}</ol>`:'')+(big?`<p><b>One day, I'd like to…</b> ${esc(big)}</p>`:'')]);
+
+  document.getElementById('results').innerHTML = r.length ? r.map(([k,t,body])=>`
+    <div class="res ${state.share[k]?'shared':''}" id="res-${k}">
+      <h3>${t}</h3>${body}
+      <label class="share"><input type="checkbox" ${state.share[k]?'checked':''} onchange="setShare('${k}',this.checked)"> I'm happy for NEO to see this</label>
+    </div>`).join('') : '<div class="card"><p>You skipped everything, and that\'s completely fine. You can talk it through instead.</p></div>';
+  toggleShow(false, true);
+  go(5);
+}
+function setShare(k,v){ state.share[k]=v; document.getElementById('res-'+k).classList.toggle('shared',v); }
+function toggleShow(on, silent){
+  const m=document.querySelector('main');
+  m.classList.toggle('showview', !!on);
+  const any = Object.values(state.share).some(Boolean);
+  document.getElementById('none').style.display = (on && !any) ? 'block' : 'none';
+  if(!silent) window.scrollTo({top:0,behavior:'smooth'});
+}
+function keepCopy(){
+  document.querySelectorAll('.res').forEach(el=>el.classList.add('print'));
+  window.print();
+  document.querySelectorAll('.res').forEach(el=>el.classList.remove('print'));
+}
+function clearAll(){
+  fresh();
+  ['g1','g2','g3','gbig'].forEach(id=>document.getElementById(id).value='');
+  renderCorners(); renderWho(); document.getElementById('results').innerHTML='';
+  go(0);
+}
+
+renderCorners(); renderWho(); renderIdeas();
+document.getElementById('progress').style.display='none';
+</script>
+</body>
+</html>
