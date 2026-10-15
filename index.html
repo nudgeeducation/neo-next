@@ -804,7 +804,7 @@ button[disabled] { opacity: 0.4; cursor: not-allowed; }
 </main>
 
 <!-- ============ SITE FOOTER ============ -->
-<!-- neo-shared-footer:start v3 · canonical: nudge-access-website/shared/footer.html · edit the canonical, then re-stamp with shared/stamp-nav.py — do not hand-edit copies -->
+<!-- neo-shared-footer:start v4 · canonical: nudge-access-website/shared/footer.html · edit the canonical, then re-stamp with shared/stamp-nav.py — do not hand-edit copies -->
 <style>
 .nf{background:#1A2E3B;color:#c9d2da;font-family:'Inter',Arial,system-ui,sans-serif;margin-top:2rem}
 .nf *{box-sizing:border-box}
@@ -829,7 +829,25 @@ button[disabled] { opacity: 0.4; cursor: not-allowed; }
 .nf-sub-form button:hover{background:#33c4b0}
 .nf-sub-note{font-size:.75rem;color:#8c97a1;margin:.5rem 0 0}
 .nf-sub-note a{font-size:.75rem;color:#8c97a1;text-decoration:underline}
+.nf-ceop{background:#F5F1E8;border-top:1px solid #E8ECEF;font-family:'Inter',Arial,system-ui,sans-serif;margin-top:2rem}
+.nf-ceop .nf-ceop-wrap{max-width:1140px;margin:0 auto;padding:1.6rem 1.25rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem 2rem}
+.nf-ceop a.nf-ceop-btn{flex:0 0 auto;display:inline-block;line-height:0}
+.nf-ceop a.nf-ceop-btn img{width:200px;height:auto;display:block}
+.nf-ceop-txt{flex:1 1 320px;max-width:62ch}
+.nf-ceop-txt p{margin:0;font-size:.95rem;line-height:1.55;color:#2D3436}
+.nf-ceop-txt p+p{margin-top:.5rem;font-size:.85rem;color:#4a5560}
+.nf-ceop-txt a{color:#1F8A7C;font-weight:600;text-decoration:none}
+.nf-ceop-txt a:hover{text-decoration:underline}
 </style>
+<section class="nf-ceop" aria-label="Report online sexual abuse to CEOP">
+  <div class="nf-ceop-wrap">
+    <a class="nf-ceop-btn" href="https://www.ceop.police.uk/safety-centre" rel="noopener"><img src="https://nudgeeducation.online/images/ceop-report.png" width="287" height="109" alt="CEOP Report — ceop.police.uk" loading="lazy"></a>
+    <div class="nf-ceop-txt">
+      <p><strong>Under 18 and worried about online sexual abuse?</strong> To report, click the button to visit the <a href="https://www.ceop.police.uk/safety-centre" rel="noopener">CEOP Safety Centre</a>. CEOP is part of the National Crime Agency and takes every report seriously. If someone is in immediate danger, call 999.</p>
+      <p>Being bullied? CEOP can't take bullying reports, but you can talk to Childline on 0800 1111 or <a href="https://www.childline.org.uk/" rel="noopener">online</a> — no worry is too big or too small.</p>
+    </div>
+  </div>
+</section>
 <footer class="nf">
   <div class="nf-wrap">
     <div class="nf-sub" id="signup">
