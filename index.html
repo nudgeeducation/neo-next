@@ -636,6 +636,7 @@ button[disabled] { opacity: 0.4; cursor: not-allowed; }
           <a href="https://curriculum.nudgeeducation.online/">Curriculum</a>
           <a href="https://courses.nudgeeducation.online/">Courses &amp; clubs</a>
           <a href="https://courses.nudgeeducation.online/qualifications.html">Qualifications</a>
+          <a href="https://nudgeeducation.online/exams.html">Exams</a>
           <a href="https://nudgeeducation.online/term-dates.html">Term dates</a>
         </div>
       </div>
@@ -803,7 +804,7 @@ button[disabled] { opacity: 0.4; cursor: not-allowed; }
 </main>
 
 <!-- ============ SITE FOOTER ============ -->
-<!-- neo-shared-footer:start v1 · canonical: nudge-access-website/shared/footer.html · edit the canonical, then re-stamp with shared/stamp-nav.py — do not hand-edit copies -->
+<!-- neo-shared-footer:start v3 · canonical: nudge-access-website/shared/footer.html · edit the canonical, then re-stamp with shared/stamp-nav.py — do not hand-edit copies -->
 <style>
 .nf{background:#1A2E3B;color:#c9d2da;font-family:'Inter',Arial,system-ui,sans-serif;margin-top:2rem}
 .nf *{box-sizing:border-box}
@@ -818,9 +819,36 @@ button[disabled] { opacity: 0.4; cursor: not-allowed; }
 .nf a:hover{color:#2AB3A0;text-decoration:underline}
 .nf-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;border-top:1px solid rgba(255,255,255,.14);margin-top:1.8rem;padding-top:1rem;font-size:.78rem;color:#8c97a1}
 .nf-legal a{font-size:.78rem;color:#8c97a1}
+.nf-sub{border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:1.8rem;padding-bottom:1.6rem;display:flex;flex-wrap:wrap;gap:1.4rem;align-items:flex-end;justify-content:space-between}
+.nf-sub-txt{flex:1 1 320px;max-width:520px}
+.nf-sub-kicker{font:600 .78rem 'Inter',Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#2AB3A0;margin:0 0 .4rem}
+.nf-sub-form{flex:1 1 340px}
+.nf-sub-form form{display:flex;flex-wrap:wrap;gap:.5rem}
+.nf-sub-form input[type=text],.nf-sub-form input[type=email]{flex:1 1 130px;min-width:120px;padding:.65rem .8rem;font:.9rem 'Inter',Arial,sans-serif;border:none;border-radius:6px;background:#fff;color:#2D3436}
+.nf-sub-form button{flex:0 0 auto;padding:.65rem 1.1rem;font:700 .9rem 'Inter',Arial,sans-serif;color:#1A2E3B;background:#2AB3A0;border:none;border-radius:6px;cursor:pointer}
+.nf-sub-form button:hover{background:#33c4b0}
+.nf-sub-note{font-size:.75rem;color:#8c97a1;margin:.5rem 0 0}
+.nf-sub-note a{font-size:.75rem;color:#8c97a1;text-decoration:underline}
 </style>
 <footer class="nf">
   <div class="nf-wrap">
+    <div class="nf-sub" id="signup">
+      <div class="nf-sub-txt">
+        <p class="nf-sub-kicker">The Nudge letter</p>
+        <p class="nf-title">Be first to hear</p>
+        <p>Occasional letters from Nudge Education — new NEO places, open events, and honest writing about helping young people find a way back to learning. No noise; unsubscribe any time.</p>
+      </div>
+      <div class="nf-sub-form">
+        <form action="https://nudgeeducation.us21.list-manage.com/subscribe/post?u=59dc91fbbc61db750d569a9b5&amp;id=7cf88e8ebb&amp;f_id=008b93e9f0" method="post" target="_blank" novalidate>
+          <input type="text" name="FNAME" placeholder="First name" aria-label="First name">
+          <input type="email" name="EMAIL" placeholder="Email address" aria-label="Email address" required>
+          <input type="hidden" name="tags" value="3037063">
+          <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_59dc91fbbc61db750d569a9b5_7cf88e8ebb" tabindex="-1" value=""></div>
+          <button type="submit">Keep me posted</button>
+        </form>
+        <p class="nf-sub-note">We only use your details to send these updates. Unsubscribe any time. <a href="https://policies.nudgeeducation.online/01-all-company/privacy-policy-web-users" rel="noopener">Privacy policy</a>.</p>
+      </div>
+    </div>
     <div class="nf-cols">
       <div>
         <p class="nf-title">Nudge Education Online</p>
@@ -834,6 +862,7 @@ button[disabled] { opacity: 0.4; cursor: not-allowed; }
           <li><a href="https://nudgeeducation.online/post-16.html">Post-16</a></li>
           <li><a href="https://next.nudgeeducation.online/">NEO Next</a></li>
           <li><a href="https://nudgeeducation.online/term-dates.html">Term dates</a></li>
+          <li><a href="https://nudgeeducation.online/exams.html">Exams</a></li>
           <li><a href="https://nudgeeducation.online/faq.html">FAQ</a></li>
           <li><a href="https://nudgeeducation.online/careers.html">Careers</a></li>
           <li><a href="https://nudgeeducation.co.uk/blog" rel="external">Blog</a></li>
@@ -860,7 +889,7 @@ button[disabled] { opacity: 0.4; cursor: not-allowed; }
     </div>
     <div class="nf-legal">
       <span>© 2026 Nudge Education Ltd · Company No. 10192753 · Working towards OEAS accreditation</span>
-      <span><a href="https://policies.nudgeeducation.online/01-all-company/privacy-policy-web-users" rel="noopener">Privacy policy</a> · <a href="https://nudgeeducation.online/careers.html">Careers</a></span>
+      <span><a href="https://policies.nudgeeducation.online/01-all-company/privacy-policy-web-users" rel="noopener">Privacy policy</a> · <a href="https://policies.nudgeeducation.online/neo-only/neo-privacy-notice-learners" rel="noopener">Learner privacy notice</a> · <a id="neo-cookie-choices" href="#" onclick="if(window.neoConsentReset){window.neoConsentReset()};return false;">Cookie choices</a> · <a href="https://nudgeeducation.online/careers.html">Careers</a></span>
     </div>
   </div>
 </footer>
